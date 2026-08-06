@@ -536,14 +536,13 @@ p { margin: 0; }
   flex-wrap: wrap;
 }
 
-.booking-instagram {
-  display: inline-block;
+.booking-contact-line {
   margin-top: 1.5rem;
   font-size: 0.9rem;
   color: var(--text-faint);
-  transition: color 150ms ease;
 }
-.booking-instagram:hover { color: var(--text); }
+.booking-contact-line a { transition: color 150ms ease; text-decoration: underline; text-underline-offset: 3px; }
+.booking-contact-line a:hover { color: var(--text); }
 
 /* ---- Footer ---- */
 .site-footer {
@@ -595,11 +594,11 @@ p { margin: 0; }
 
 @media (max-width: 980px) {
   .hero { grid-template-columns: 1fr; }
-  .hero-portrait { order: -1; max-width: 320px; margin: 0 auto; }
+  .hero-portrait { order: -1; width: 100%; max-width: 320px; margin: 0 auto; }
   .spec-strip { grid-template-columns: repeat(3, 1fr); row-gap: 1.5rem; }
   .spec:nth-child(4) { border-left: none; }
   .about-grid { grid-template-columns: 1fr; }
-  .about-media { max-width: 320px; margin: 0 auto; }
+  .about-media { width: 100%; max-width: 320px; margin: 0 auto; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
   .platform-grid { grid-template-columns: repeat(3, 1fr); }
   .gallery-grid { column-count: 2; }
