@@ -11,10 +11,9 @@ assets/
   css/style.css
   js/main.js
   img/
-    martin-dehn-hero.jpg       ← Hero-Foto (Hochformat, min. 1200×1500px)
-    martin-dehn-portrait.jpg   ← Porträt im "Über mich"-Bereich (Hochformat, min. 900×1200px)
-    gallery/
-      gallery-01.jpg … gallery-06.jpg   ← Bühnen-/Event-Fotos (Querformat, min. 1200×800px)
+    martin-dehn-hero.jpg       ← Hero-Foto (bereits befüllt)
+    martin-dehn-portrait.jpg   ← Porträt im "Über mich"-Bereich (bereits befüllt)
+    gallery/                            ← bereits befüllt mit 12 Bühnenfotos (gallery-01.jpg … gallery-12.jpg)
     logos/                              ← bereits befüllt mit echten Referenz-Logos
       xp-festival.jpg
       golf-lounge-resort.webp
