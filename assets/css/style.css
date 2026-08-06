@@ -400,6 +400,8 @@ p { margin: 0; }
   gap: 1rem;
 }
 
+.reach-benefits { margin-top: 1.25rem; }
+
 .platform {
   display: flex;
   flex-direction: column;
