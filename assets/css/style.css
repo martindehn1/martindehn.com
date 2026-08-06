@@ -447,18 +447,40 @@ p { margin: 0; }
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(2rem, 6vw, 4rem);
+  gap: 1rem;
 }
 
-.logo-row img {
-  height: 32px;
+/* Brand row: real, colorful event/venue logos of very mixed formats — give each
+   one a consistent tile instead of forcing them into a flat, same-height strip. */
+.logo-row--brand img {
+  height: 72px;
+  width: 108px;
+  object-fit: contain;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 10px;
+  transition: transform 200ms var(--spring), background 200ms ease, border-color 200ms ease;
+}
+.logo-row--brand img:hover {
+  transform: translateY(-3px);
+  background: var(--surface-strong);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* TV row: flat network marks — kept as a quiet, desaturated trust strip. */
+.logo-row--tv {
+  gap: clamp(2rem, 6vw, 4rem);
+}
+.logo-row--tv img {
+  height: 26px;
   width: auto;
   max-width: 140px;
   object-fit: contain;
   filter: grayscale(1) brightness(1.8) opacity(0.55);
   transition: filter 250ms ease;
 }
-.logo-row img:hover { filter: grayscale(0) brightness(1) opacity(1); }
+.logo-row--tv img:hover { filter: grayscale(0) brightness(1) opacity(1); }
 
 .logo-fallback {
   height: 32px;
@@ -480,8 +502,6 @@ p { margin: 0; }
   font-size: 0.78rem;
   letter-spacing: 0.08em;
 }
-
-.logo-row--tv img { height: 26px; }
 
 /* ---- Booking ---- */
 .section-booking { position: relative; text-align: center; }

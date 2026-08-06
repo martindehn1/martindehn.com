@@ -15,11 +15,15 @@ assets/
     martin-dehn-portrait.jpg   ← Porträt im "Über mich"-Bereich (Hochformat, min. 900×1200px)
     gallery/
       gallery-01.jpg … gallery-06.jpg   ← Bühnen-/Event-Fotos (Querformat, min. 1200×800px)
-    logos/
-      xp-festival.svg / .png
-      golf-lounge.svg / .png
-      harburg-marketing.svg / .png
-      bigslam.svg / .png
+    logos/                              ← bereits befüllt mit echten Referenz-Logos
+      xp-festival.jpg
+      golf-lounge-resort.webp
+      campingpark-kuehlungsborn.jpg
+      sommer-spektakel-kuehlungsborn.png
+      open-air-kino-harburg.png
+      sommer-im-park.jpg
+      reeper-b-club.avif
+      big-slam-wrestling.webp
     tv/
       galileo.svg / .png
       sat1.svg / .png
