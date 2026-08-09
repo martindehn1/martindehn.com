@@ -57,21 +57,50 @@
   });
 
   // Scroll reveal — opacity/transform only, respects prefers-reduced-motion via CSS.
-  const revealEls = document.querySelectorAll('.reveal');
+  const revealEls = Array.from(document.querySelectorAll('.reveal'));
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Siblings arrive in sequence rather than all at once, so a row of cards
+  // reads as one movement. Capped so long groups (12 photos) don't crawl.
+  const STAGGER_MS = 70;
+  const MAX_DELAY_MS = 420;
+
+  const staggerDelay = (el) => {
+    if (reduceMotion || !el.parentElement) return 0;
+    const siblings = Array.from(el.parentElement.children).filter((c) =>
+      c.classList.contains('reveal')
+    );
+    if (siblings.length < 2) return 0;
+    return Math.min(siblings.indexOf(el) * STAGGER_MS, MAX_DELAY_MS);
+  };
+
+  // Drop the compositor hint once the element has landed
+  const settle = (el) => {
+    el.addEventListener(
+      'transitionend',
+      (e) => {
+        if (e.target === el) el.classList.add('is-settled');
+      },
+      { once: true }
+    );
+  };
+
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            io.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          io.unobserve(el);
+          el.style.transitionDelay = `${staggerDelay(el)}ms`;
+          settle(el);
+          el.classList.add('is-visible');
         });
       },
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
     );
     revealEls.forEach((el) => io.observe(el));
   } else {
-    revealEls.forEach((el) => el.classList.add('is-visible'));
+    revealEls.forEach((el) => el.classList.add('is-visible', 'is-settled'));
   }
 })();

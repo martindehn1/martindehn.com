@@ -24,6 +24,12 @@
   /* Critically damped, no overshoot — Apple's default UI feel */
   --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-out: cubic-bezier(0.28, 0.11, 0.32, 1);
+  /* Sampled from a critically damped spring (damping 1.0, response 0.4):
+     x(t) = 1 − (1 + ωt)·e^(−ωt). Settles without overshoot, unlike a bezier. */
+  --spring: linear(
+    0, 0.186, 0.465, 0.682, 0.821, 0.903,
+    0.949, 0.973, 0.986, 0.993, 0.997, 0.999, 1
+  );
 
   --container: 1080px;
   --gutter: clamp(1.375rem, 5vw, 2.5rem);
@@ -130,16 +136,52 @@ p { margin: 0; }
   color: var(--text-dim);
 }
 
-/* ---- Reveal on scroll — opacity/transform only ---- */
-.reveal {
+/* ---- Reveal on scroll ----
+   Uses the independent `translate` property rather than `transform`, so a
+   component's own hover transform composes with it instead of clobbering it.
+   Scoped to .js so that without JavaScript nothing is ever hidden. */
+.js .reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
+  translate: 0 22px;
+  /* `transform` rides along here so revealed components (cards, platform
+     tiles) keep a hover transition without redeclaring one — a second
+     `transition` on those classes would override this whole list. */
+  transition: opacity 600ms var(--spring),
+              translate 600ms var(--spring),
+              transform 400ms var(--ease-out);
+  will-change: opacity, translate;
 }
-.reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal.is-visible { opacity: 1; translate: none; }
+/* Dropped once the element has landed — a permanent hint costs memory */
+.js .reveal.is-settled { will-change: auto; }
+
+/* Images materialize: they scale up as they fade, rather than just appearing */
+.js .hero-portrait.reveal,
+.js .about-media.reveal,
+.js .gallery-item.reveal {
+  scale: 0.97;
+  transition: opacity 600ms var(--spring),
+              translate 600ms var(--spring),
+              scale 600ms var(--spring),
+              transform 400ms var(--ease-out);
+}
+.js .hero-portrait.reveal.is-visible,
+.js .about-media.reveal.is-visible,
+.js .gallery-item.reveal.is-visible { scale: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  /* Gentler equivalent, not no feedback: a short cross-fade, no travel.
+     Keeps the .js prefix — a media query adds no specificity, so an
+     unprefixed .reveal here would lose to .js .reveal above. */
+  .js .reveal,
+  .js .hero-portrait.reveal,
+  .js .about-media.reveal,
+  .js .gallery-item.reveal {
+    translate: none;
+    scale: 1;
+    transition: opacity 200ms ease;
+    transition-delay: 0ms !important;
+  }
 }
 
 /* ==========================================================================
@@ -353,7 +395,6 @@ p { margin: 0; }
   padding: clamp(1.75rem, 3vw, 2.25rem);
   border-radius: var(--radius-lg);
   background: var(--surface);
-  transition: transform 400ms var(--ease-out);
 }
 /* On the grey band the card reads as white; on white it reads as grey */
 .section--alt .card { background: #fff; }
@@ -425,11 +466,12 @@ p { margin: 0; }
   border-radius: var(--radius-lg);
   background: #fff;
   color: var(--text);
-  transition: transform 300ms var(--ease-out);
 }
 .platform svg { width: 24px; height: 24px; }
 .platform:hover { transform: translateY(-4px); }
-.platform:active { transform: scale(0.97); }
+/* Press feedback has to land on pointer-down, not ease in over the hover
+   duration — the shorter duration wins while :active holds */
+.platform:active { transform: scale(0.97); transition-duration: 100ms; }
 
 .platform-name {
   font-size: 0.8125rem;
@@ -454,11 +496,26 @@ p { margin: 0; }
   border-radius: var(--radius-md);
   background-color: var(--bg-alt);
   overflow: hidden;
-  transition: transform 400ms var(--ease-out);
 }
-.gallery-item:hover { transform: scale(1.015); }
 
-.gallery-item img { width: 100%; height: auto; display: block; }
+/* The frame holds still and the photo scales inside it — the frame moving
+   would break the grid's alignment with its neighbours. */
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: scale 500ms var(--ease-out);
+}
+.gallery-item:hover img { scale: 1.04; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-item img { transition: none; }
+  .gallery-item:hover img { scale: 1; }
+  /* Hold position on hover too — colour/opacity still signal the state */
+  .card:hover,
+  .platform:hover,
+  .logo-row--brand img:hover { transform: none; }
+}
 
 /* ==========================================================================
    Logos

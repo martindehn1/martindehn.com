@@ -8,6 +8,10 @@
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="https://martindehn.com/">
+<!-- Gates the scroll-reveal styles on JS being alive. Without this, a failed
+     or blocked main.js would leave every revealable element at opacity 0 —
+     i.e. a blank page. Runs before the stylesheet, so there is no flash. -->
+<script>document.documentElement.classList.add('js');</script>
 
 <!-- Open Graph / Facebook, WhatsApp, LinkedIn -->
 <meta property="og:type" content="website">
@@ -260,31 +264,31 @@
       </p>
     </div>
 
-    <div class="platform-grid reveal">
-      <a class="platform" href="https://www.instagram.com/martin.dehn/" target="_blank" rel="noopener">
+    <div class="platform-grid">
+      <a class="platform reveal" href="https://www.instagram.com/martin.dehn/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.07 1.2.06 2.4.28 3.4 1.24.96 1 1.18 2.2 1.24 3.4.07 1.2.07 1.6.07 4.8s0 3.6-.07 4.8c-.06 1.2-.28 2.4-1.24 3.4-1 .96-2.2 1.18-3.4 1.24-1.2.07-1.6.07-4.8.07s-3.6 0-4.8-.07c-1.2-.06-2.4-.28-3.4-1.24-.96-1-1.18-2.2-1.24-3.4C2.5 15.6 2.5 15.2 2.5 12s0-3.6.07-4.8c.06-1.2.28-2.4 1.24-3.4 1-.96 2.2-1.18 3.4-1.24C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5 0-4.7.07-.98.05-1.8.23-2.5.9-.66.66-.84 1.5-.9 2.48-.07 1.2-.07 1.56-.07 4.7s0 3.5.07 4.7c.06.98.24 1.8.9 2.48.7.67 1.52.85 2.5.9 1.2.07 1.56.07 4.7.07s3.5 0 4.7-.07c.98-.05 1.8-.23 2.5-.9.66-.66.84-1.5.9-2.48.07-1.2.07-1.56.07-4.7s0-3.5-.07-4.7c-.06-.98-.24-1.82-.9-2.48-.7-.67-1.52-.85-2.5-.9-1.2-.07-1.56-.07-4.7-.07zm0 3.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11zm0 1.8a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4zm5.7-2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6z"/></svg>
         <span class="platform-name">Instagram</span>
       </a>
-      <a class="platform" href="https://www.tiktok.com/@martin.dehn" target="_blank" rel="noopener">
+      <a class="platform reveal" href="https://www.tiktok.com/@martin.dehn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 2h-3.1v13.9c0 1.6-1.3 2.9-2.9 2.9a2.9 2.9 0 0 1-2.9-2.9 2.9 2.9 0 0 1 2.9-2.9c.3 0 .6 0 .9.1V10c-.3 0-.6-.1-.9-.1-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6V8.7a7.9 7.9 0 0 0 4.6 1.5V7.1c-1.9 0-3.6-1-4.6-2.6V2z"/></svg>
         <span class="platform-name">TikTok</span>
       </a>
-      <a class="platform" href="https://www.youtube.com/martindehn" target="_blank" rel="noopener">
+      <a class="platform reveal" href="https://www.youtube.com/martindehn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2s-.2-1.5-.8-2.1c-.8-.8-1.7-.8-2.1-.9C15.9 4 12 4 12 4s-3.9 0-6.7.2c-.4.1-1.3.1-2.1.9-.6.6-.8 2.1-.8 2.1S2.2 9 2.2 10.8v1.4c0 1.8.2 3.6.2 3.6s.2 1.5.8 2.1c.8.8 1.9.8 2.3.9C7 19 12 19 12 19s3.9 0 6.7-.2c.4-.1 1.3-.1 2.1-.9.6-.6.8-2.1.8-2.1s.2-1.8.2-3.6v-1.4c0-1.8-.2-3.6-.2-3.6zM9.9 14.6V9l5.4 2.8-5.4 2.8z"/></svg>
         <span class="platform-name">YouTube</span>
       </a>
-      <a class="platform" href="https://www.facebook.com/martin.dehn.35/" target="_blank" rel="noopener">
+      <a class="platform reveal" href="https://www.facebook.com/martin.dehn.35/" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21.9v-8.1h2.7l.4-3.2h-3.1V8.5c0-.9.3-1.6 1.6-1.6h1.7V4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.4v3.2h2.7v8.1h3.4z"/></svg>
         <span class="platform-name">Facebook</span>
       </a>
-      <a class="platform" href="https://www.snapchat.com/@martin.dehn" target="_blank" rel="noopener">
+      <a class="platform reveal" href="https://www.snapchat.com/@martin.dehn" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3c2.9 0 4.9 2.2 4.9 5v1.9c0 .3.3.6.9.9.5.3 1.3.5 1.3 1.1 0 .5-.7.8-1.4 1-.3.1-.5.3-.4.6.2.9.9 1.6 2.1 1.9.2 0 .4.3.3.5-.2.6-1.2.8-2 1-.1.3-.2.7-.3 1-.1.2-.3.3-.6.3-.8 0-1.4.5-2.6 1-.9.3-1.8.7-2.7.7-.9 0-1.8-.4-2.7-.7-1.2-.5-1.8-1-2.6-1-.3 0-.5-.1-.6-.3-.1-.3-.2-.7-.3-1-.8-.2-1.8-.4-2-1-.1-.2.1-.5.3-.5 1.2-.3 1.9-1 2.1-1.9.1-.3-.1-.5-.4-.6-.7-.2-1.4-.5-1.4-1 0-.6.8-.8 1.3-1.1.6-.3.9-.6.9-.9V8c0-2.8 2-5 4.9-5z"/></svg>
         <span class="platform-name">Snapchat</span>
       </a>
     </div>
 
-    <div class="card-grid reach-benefits reveal">
-      <article class="card">
+    <div class="card-grid reach-benefits">
+      <article class="card reveal">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <path d="M3 10.5v3a1 1 0 0 0 1 1h2.2l5.3 4V5.5l-5.3 4H4a1 1 0 0 0-1 1z"/>
@@ -295,7 +299,7 @@
         <h3 class="card-title">Aktive Bewerbung</h3>
         <p class="card-text">Vor und nach jedem Termin poste ich auf allen fünf Kanälen — dein Event läuft nicht nur live, sondern bleibt online sichtbar.</p>
       </article>
-      <article class="card">
+      <article class="card reveal">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
@@ -306,7 +310,7 @@
         <h3 class="card-title">Fünf Plattformen, eine Stimme</h3>
         <p class="card-text">Instagram, TikTok, Snapchat, YouTube und Facebook — unter meinem eigenen Namen, mit einer echten, gewachsenen Community.</p>
       </article>
-      <article class="card">
+      <article class="card reveal">
         <div class="card-icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="9"/>
@@ -327,19 +331,19 @@
       <p class="section-sub">Impressionen.</p>
     </div>
 
-    <div class="gallery-grid reveal">
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-01.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-02.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-03.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-04.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-05.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-06.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-07.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-08.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-09.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-10.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-11.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
-      <div class="gallery-item"><img src="assets/img/gallery/gallery-12.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-01.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-02.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-03.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-04.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-05.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-06.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-07.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-08.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-09.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-10.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-11.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
+      <div class="gallery-item reveal"><img src="assets/img/gallery/gallery-12.jpg" alt="Martin Dehn auf der Bühne" loading="lazy"></div>
     </div>
   </section>
 
