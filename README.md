@@ -12,7 +12,7 @@ assets/
   js/main.js
   img/
     martin-dehn-hero.jpg       ← Hero-Foto (bereits befüllt)
-    martin-dehn-portrait.jpg   ← Porträt im "Über mich"-Bereich (bereits befüllt)
+                                 Das "Über mich"-Porträt kommt direkt aus gallery/
     gallery/                            ← bereits befüllt mit 12 Bühnenfotos (gallery-01.jpg … gallery-12.jpg)
     logos/                              ← bereits befüllt mit echten Referenz-Logos
       xp-festival.jpg
