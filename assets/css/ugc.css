@@ -69,6 +69,12 @@
   color: var(--text-faint);
 }
 
+.case-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .case-body { padding: 1.5rem; }
 
 .case-tag {
