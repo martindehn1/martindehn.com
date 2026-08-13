@@ -13,7 +13,7 @@
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
-    nav.classList.toggle('is-scrolled', scrollTop > 8);
+    if (nav) nav.classList.toggle('is-scrolled', scrollTop > 8);
     if (progressBar) progressBar.style.width = `${pct}%`;
   };
   onScroll();
@@ -21,6 +21,7 @@
 
   // Mobile menu: opens and closes along the same edge (right), never traps focus.
   const closeMenu = () => {
+    if (!navLinks || !navToggle) return;
     navLinks.classList.remove('is-open');
     navToggle.setAttribute('aria-expanded', 'false');
     navToggle.setAttribute('aria-label', 'Menü öffnen');
@@ -38,9 +39,11 @@
     });
   }
 
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
+  if (navLinks) {
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
