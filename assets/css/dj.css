@@ -148,10 +148,27 @@
 .dj-text-link { display: inline-block; margin-top: 1.5rem; color: var(--link); font-size: 1rem; }
 .dj-text-link:hover { text-decoration: underline; }
 
+.dj-reach {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 7vw, 6rem);
+  align-items: center;
+}
+.dj-reach-number {
+  color: var(--accent);
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.dj-reach-number span { font-size: 0.48em; letter-spacing: -0.04em; }
+
 @media (max-width: 750px) {
   .dj-hero { min-height: 0; grid-template-columns: 1fr; }
   .dj-visual { width: min(100%, 460px); margin: 0 auto; }
   .dj-combo { grid-template-columns: 1fr; gap: 1rem; }
+  .dj-reach { grid-template-columns: 1fr; gap: 1.25rem; }
   .dj-genre { grid-template-columns: 2rem 1fr; gap: 0.25rem 0.75rem; }
   .dj-genre p { grid-column: 2; }
   .dj-appearance-grid { grid-template-columns: 1fr; }
