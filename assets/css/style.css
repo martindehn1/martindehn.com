@@ -665,7 +665,7 @@ p { margin: 0; }
   .gallery-grid { column-count: 2; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .nav-links {
     position: fixed;
     top: 3rem;
