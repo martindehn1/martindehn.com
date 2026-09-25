@@ -104,6 +104,21 @@
 .dj-genre h3 { font-size: clamp(1.5rem, 3vw, 2.25rem); letter-spacing: -0.025em; }
 .dj-genre p { color: var(--text-dim); font-size: 1rem; }
 
+.dj-appearances { margin-top: clamp(4.5rem, 9vw, 7rem); scroll-margin-top: 5rem; }
+.dj-appearance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.dj-appearance {
+  min-height: 11rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: #fff;
+}
+.dj-appearance-label { color: var(--accent); font-size: 0.8125rem; font-weight: 600; }
+.dj-appearance h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); line-height: 1.2; letter-spacing: -0.02em; }
+
 .dj-combo {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -129,6 +144,8 @@
   .dj-combo { grid-template-columns: 1fr; gap: 1rem; }
   .dj-genre { grid-template-columns: 2rem 1fr; gap: 0.25rem 0.75rem; }
   .dj-genre p { grid-column: 2; }
+  .dj-appearance-grid { grid-template-columns: 1fr; }
+  .dj-appearance { min-height: 8rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
